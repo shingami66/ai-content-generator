@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+# 🤖 AI Content Generation App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+تطبيق ويب متطور لتوليد المحتوى باستخدام الذكاء الاصطناعي، مبني باستخدام React و Node.js
 
-## Available Scripts
+## ✨ المميزات
 
-In the project directory, you can run:
+- 🎨 **توليد الصور والفيديوهات** باستخدام OpenAI DALL-E و Runway ML
+- 🔐 **نظام مصادقة متقدم** مع JWT tokens
+- 👤 **إدارة المستخدمين** الكاملة (تسجيل، تسجيل دخول، ملف شخصي)
+- 💳 **نظام اشتراكات** مع خطط مختلفة (مجاني/مدفوع)
+- 📊 **تتبع استخدام المستخدم** وحدود التوليد
+- 🖼️ **معرض المحتوى** الشخصي
+- 💬 **نظام تقييم** للمستخدمين
+- 📱 **تصميم متجاوب** يعمل على جميع الأجهزة
 
-### `npm start`
+## 🛠️ التقنيات المستخدمة
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- **React 18** مع TypeScript
+- **Vite** للبناء والتطوير
+- **React Router** للتنقل
+- **Custom CSS** للتصميم
+- **Context API** لإدارة الحالة
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- **Node.js** مع Express.js
+- **MySQL** قاعدة البيانات
+- **JWT** للمصادقة
+- **bcrypt** لتشفير كلمات المرور
+- **express-validator** للتحقق من صحة البيانات
 
-### `npm test`
+### APIs الخارجية
+- **OpenAI DALL-E** لتوليد الصور
+- **Runway ML** لتوليد الفيديوهات
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 كيفية التشغيل
 
-### `npm run build`
+### متطلبات النظام
+- Node.js (الإصدار 16 أو أحدث)
+- MySQL Server
+- npm أو yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### خطوات التثبيت
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **استنساخ المشروع**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   cd ai-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **تثبيت dependencies الخلفية**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-### `npm run eject`
+3. **تثبيت dependencies الأمامية**
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **إعداد قاعدة البيانات**
+   - قم بإنشاء قاعدة بيانات MySQL جديدة
+   - قم بتحديث ملف `.env` في مجلد backend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **تشغيل الخادم**
+   ```bash
+   # في terminal منفصل للخلفية
+   cd backend
+   npm run dev
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   # في terminal منفصل للأمامية
+   cd frontend
+   npm run dev
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. **افتح المتصفح**
+   - Frontend: http://localhost:5173
+   - Backend: http://localhost:3001
 
-## Learn More
+## 🔧 متغيرات البيئة
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+أنشئ ملف `.env` في مجلد `backend` بالمحتوى التالي:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```env
+# Database Configuration
+DB_HOST=localhost
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=ai_db
+DB_PORT=3306
 
-### Code Splitting
+# JWT Secret
+JWT_SECRET=your_jwt_secret_key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# OpenAI API
+OPENAI_API_KEY=your_openai_api_key
 
-### Analyzing the Bundle Size
+# Runway API (اختياري)
+RUNWAY_API_KEY=your_runway_api_key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Server Port
+PORT=3001
+```
 
-### Making a Progressive Web App
+## 📁 هيكل المشروع
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+ai-app/
+├── backend/                 # خادم Node.js
+│   ├── src/
+│   │   ├── config/         # إعدادات قاعدة البيانات
+│   │   ├── middlewares/    # middlewares المخصصة
+│   │   ├── routes/         # routes الـ API
+│   │   └── services/       # خدمات الخادم
+│   └── uploads/            # الملفات المرفوعة
+├── frontend/                # تطبيق React
+│   ├── src/
+│   │   ├── api/            # ملفات API
+│   │   ├── components/     # مكونات React
+│   │   ├── context/        # Context للحالة العامة
+│   │   ├── hooks/          # Custom hooks
+│   │   └── pages/          # صفحات التطبيق
+│   └── public/             # الملفات الثابتة
+└── DOCS/                   # التوثيق
+```
 
-### Advanced Configuration
+## 🔒 الأمان
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- ✅ تشفير كلمات المرور باستخدام bcrypt
+- ✅ مصادقة JWT tokens
+- ✅ التحقق من صحة البيانات
+- ✅ حماية CORS
+- ✅ تصفية المدخلات لمنع XSS
 
-### Deployment
+## 📊 قاعدة البيانات
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+الجداول الرئيسية:
+- `registereduser` - بيانات المستخدمين
+- `content` - المحتوى المولد
+- `subscription` - الاشتراكات
+- `generations` - تتبع التوليد
 
-### `npm run build` fails to minify
+## 🤝 المساهمة
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+نرحب بالمساهمات! يرجى اتباع الخطوات التالية:
+
+1. Fork المشروع
+2. أنشئ branch جديد (`git checkout -b feature/AmazingFeature`)
+3. Commit التغييرات (`git commit -m 'Add some AmazingFeature'`)
+4. Push للbranch (`git push origin feature/AmazingFeature`)
+5. افتح Pull Request
+
+## 📝 الترخيص
+
+هذا المشروع مرخص تحت رخصة MIT - راجع ملف [LICENSE](LICENSE) للتفاصيل.
+
+## 📞 التواصل
+
+- **المطور**: [اسمك]
+- **البريد الإلكتروني**: your.email@example.com
+- **GitHub**: [https://github.com/YOUR_USERNAME](https://github.com/YOUR_USERNAME)
+
+---
+
+⭐ إذا أعجبك المشروع، لا تنس إعطاؤه نجمة!
