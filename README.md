@@ -76,7 +76,7 @@
    ```
 
 6. **افتح المتصفح**
-   - Frontend: http://localhost:5173
+   - Frontend: http://localhost:3000
    - Backend: http://localhost:3001
 
 ## 🔧 متغيرات البيئة
