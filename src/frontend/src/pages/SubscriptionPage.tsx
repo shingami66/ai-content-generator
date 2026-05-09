@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAppContext } from '../context/AppContext';
 import { subscriptionAPI } from '../api/api';
 import { usePaymentSuccess } from '../hooks/usePaymentSuccess';
