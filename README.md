@@ -4,7 +4,7 @@
 
 ## ✨ المميزات
 
-- 🎨 **توليد الصور والفيديوهات** باستخدام OpenAI DALL-E و Runway ML
+- 🎨 **توليد الصور** باستخدام OpenAI DALL-E
 - 🔐 **نظام مصادقة متقدم** مع JWT tokens
 - 👤 **إدارة المستخدمين** الكاملة (تسجيل، تسجيل دخول، ملف شخصي)
 - 💳 **نظام اشتراكات** مع خطط مختلفة (مجاني/مدفوع)
@@ -31,7 +31,7 @@
 
 ### APIs الخارجية
 - **OpenAI DALL-E** لتوليد الصور
-- **Runway ML** لتوليد الفيديوهات
+- **Google Gemini** لتوليد النصوص (Endpoint منفصل)
 
 ## 🚀 كيفية التشغيل
 
@@ -97,8 +97,15 @@ JWT_SECRET=your_jwt_secret_key
 # OpenAI API
 OPENAI_API_KEY=your_openai_api_key
 
-# Runway API (اختياري)
-RUNWAY_API_KEY=your_runway_api_key
+# Gemini API (Optional)
+GEMINI_API_KEY=your_gemini_api_key
+
+# Vertex AI Veo (Video)
+VERTEX_PROJECT_ID=your_gcp_project_id
+VERTEX_LOCATION=us-central1
+VERTEX_VEO_MODEL_ID=veo-3.1-generate-preview
+VERTEX_GCS_OUTPUT_URI=gs://your_bucket/veo-results
+GOOGLE_APPLICATION_CREDENTIALS=backend/keys/veo-sa.json
 
 # Server Port
 PORT=3001
@@ -129,10 +136,13 @@ ai-app/
 ## 🔒 الأمان
 
 - ✅ تشفير كلمات المرور باستخدام bcrypt
-- ✅ مصادقة JWT tokens
-- ✅ التحقق من صحة البيانات
+- ✅ مصادقة JWT tokens بدون fallback غير آمن
+- ✅ التحقق الشامل من صحة البيانات (frontend + backend)
 - ✅ حماية CORS
 - ✅ تصفية المدخلات لمنع XSS
+- ✅ إزالة تخزين بيانات البطاقات من localStorage
+- ✅ rate limiting لمنع الهجمات
+- ✅ التحقق من صحة البيانات في الإنتاج
 
 ## 📊 قاعدة البيانات
 
@@ -141,6 +151,28 @@ ai-app/
 - `content` - المحتوى المولد
 - `subscription` - الاشتراكات
 - `generations` - تتبع التوليد
+
+## 🚀 التحديثات الأخيرة (v1.1.0)
+
+### ✅ إصلاحات الأمان الحرجة
+- إزالة تخزين بيانات البطاقات الائتمانية من localStorage
+- إصلاح JWT secret fallback غير الآمن
+- إضافة rate limiting شامل
+- تحسين التحقق من صحة البيانات
+
+### ✅ تحسينات الأداء
+- إضافة database indexes للأداء الأفضل
+- تحسين TypeScript types
+- إصلاح Runway API integration
+- تحسين validation في الفرونت اند
+
+### ✅ تحسينات الجودة
+- إزالة استخدام `any` types
+- إضافة validation أفضل للمستخدمين
+- تحسين error handling
+- تنظيف الكود
+
+---
 
 ## 🤝 المساهمة
 

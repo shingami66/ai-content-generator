@@ -52,3 +52,7 @@ Desktop.ini
 # Temporary files
 *.tmp
 *.temp
+
+# Google Cloud service account keys
+src/backend/Key/
+**/Key/*.json
