@@ -22,7 +22,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build
+    - name: Clean install dependencies and Build
       run: |
+        rm -f package-lock.json
         npm install
         npm run build
