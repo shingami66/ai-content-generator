@@ -21,9 +21,8 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
 
-    - name: Install dependencies and Execute Vite Build
+    - name: Clean Install and Build (Strict CI)
       run: |
         npm ci
         npm run build
