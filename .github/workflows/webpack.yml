@@ -1,4 +1,4 @@
-name: NodeJS with Webpack
+name: NodeJS CI/CD Build
 
 on:
   push:
@@ -21,8 +21,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
 
-    - name: Clean install CI dependencies and Build
+    - name: Install dependencies and Execute Vite Build
       run: |
         npm ci
         npm run build
